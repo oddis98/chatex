@@ -16,4 +16,4 @@ To run the frontend cd to [chatex2](chatex2) and run `yarn start`
 
 
 ### Accessing the app
-To access the application head to [localhost:3000](localhost:3000)
+To access the application head to [localhost:3000](http://localhost:3000)
