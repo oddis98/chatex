@@ -1,0 +1,39 @@
+.container h2 {
+  color: #fff;
+  text-align: center;
+  font-size: 7em;
+  line-height: 1em;
+  z-index: 1000;
+  font-weight: 900;
+}
+
+#subText {
+  font-size: 2em;
+  letter-spacing: 0.4em;
+  font-weight: 400;
+  text-transform: uppercase;
+  z-index: 1000;
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #1a1a1a;
+}
+
+.block {
+  position: absolute;
+  width: 50px;
+  height: 100px;
+  background: url("../../Images/temp.PNG");
+  filter: grayscale();
+  background-size: cover;
+  background-position: 0%;
+  box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
