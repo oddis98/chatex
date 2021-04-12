@@ -2,6 +2,6 @@
 A simple MERN fullstack chat application
 
 ## Frameworks
-This application integrates MongoDB nicely with NodeJS and ExpressJS.
+This application integrates MongoDB nicely with NodeJS and ExpressJS. Check [server](server) for backend code.
 
-It uses ReactJS as it's frontend which can be located in [chatex2](chatex2)
+It uses ReactJS with create-react-app as it's frontend which can be located in [chatex2](chatex2)
