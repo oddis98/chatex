@@ -6,4 +6,8 @@ This application integrates MongoDB nicely with NodeJS and ExpressJS. Check [ser
 
 It uses ReactJS with create-react-app as it's frontend which can be located in [chatex2](chatex2)
 
-To run the app cd to root folder and run `npm start`
+### Running the app
+To run the backend, cd to root folder and run `npm start`
+
+The frontend uses yarn because of complications with npm.
+To run the frontend cd to [chatex2](chatex2) and run `yarn start`
