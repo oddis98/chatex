@@ -191,15 +191,17 @@ p {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0.5rem;
 }
 
 ::-webkit-scrollbar-track {
   background: #424242;
+  border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-thumb {
   background: rgb(34, 34, 34);
+  border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
