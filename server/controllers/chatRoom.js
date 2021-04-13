@@ -7,7 +7,9 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
 const io = require("socket.io-client");
-const socket = io("https://chatex2.herokuapp.com/");
+const socket = io.connect("https://chatex2.herokuapp.com/", {
+  reconnect: true,
+});
 
 export default {
   initiate: async (req, res) => {
