@@ -43,6 +43,7 @@ router.post("/login/:userId", encode, async (req, res, next) => {
 router.get("/login", async (req, res) => {
   try {
     const email = req.session.email;
+    console.log(req);
     if (!email) {
       return res.status(218).json({
         success: false,
