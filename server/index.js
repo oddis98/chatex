@@ -46,9 +46,7 @@ app.use("*", (req, res) => {
 });
 
 const server = http.createServer(app);
-global.io = require("socket.io")(server, {
-  cors: { origin: "*" },
-});
+global.io = require("socket.io")(server);
 
 global.io.on("connection", WebSockets.connection);
 

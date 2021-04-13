@@ -80,6 +80,7 @@ const MessageBoard = (props) => {
       });
 
       socket.on("message", (text) => {
+        console.log(text.message);
         updateMessageBoard();
       });
     }
