@@ -36,7 +36,7 @@ const MessageBoard = (props) => {
           authorization: "Bearer " + props.auth,
         },
       };
-      fetch("/room/" + props.room, requestOptions)
+      fetch("https://chatex2.herokuapp.com/room/" + props.room, requestOptions)
         .then((response) => response.json())
         .then((data) => {
           let text = [];

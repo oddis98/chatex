@@ -15,14 +15,14 @@ export default (props) => {
         password: values.password,
       }),
     };
-    fetch("/users/email/" + values.email)
+    fetch("https://chatex2.herokuapp.com/users/email/" + values.email)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         try {
           const id = data["user"]["_id"];
           const email = data["user"]["email"];
-          fetch("/login/" + id, requestOptions)
+          fetch("https://chatex2.herokuapp.com/login/" + id, requestOptions)
             .then((response) => response.json())
             .then((data) => {
               if (!data.success) {
@@ -48,7 +48,7 @@ export default (props) => {
   };
 
   useEffect(() => {
-    fetch("/login")
+    fetch("https://chatex2.herokuapp.com/login")
       .then((response) => response.json())
       .then((data) => {
         if (!data.success) {

@@ -22,7 +22,9 @@ const UserPage = () => {
 
   const inviteFriend = (values) => {
     try {
-      fetch("/users/email/" + values.target.textContent)
+      fetch(
+        "https://chatex2.herokuapp.com/users/email/" + values.target.textContent
+      )
         .then((response) => response.json())
         .then((data) => {
           if (!data.success) {
@@ -39,7 +41,7 @@ const UserPage = () => {
               type: "consumer-to-consumer",
             }),
           };
-          fetch("/room/initiate", requestOptions)
+          fetch("https://chatex2.herokuapp.com/room/initiate", requestOptions)
             .then((response) => response.json())
             .then((data) => {
               setRoom(data.chatRoom.chatRoomId);
@@ -71,7 +73,10 @@ const UserPage = () => {
           messageText: postMsg,
         }),
       };
-      fetch("/room/" + room + "/message", requestOptions)
+      fetch(
+        "https://chatex2.herokuapp.com/room/" + room + "/message",
+        requestOptions
+      )
         .then((response) => response.json())
         .then((data) => {
           if (data.success) {
@@ -84,7 +89,7 @@ const UserPage = () => {
   };
 
   const logout = () => {
-    fetch("/logout")
+    fetch("https://chatex2.herokuapp.com/logout")
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
@@ -95,7 +100,7 @@ const UserPage = () => {
 
   useEffect(() => {
     const getSession = () => {
-      fetch("/login")
+      fetch("https://chatex2.herokuapp.com/login")
         .then((response) => response.json())
         .then((data) => {
           if (!data.success) {
@@ -126,7 +131,7 @@ const UserPage = () => {
 
   const getFriends = () => {
     try {
-      fetch("/users/friends/allFriends")
+      fetch("https://chatex2.herokuapp.com/users/friends/allFriends")
         .then((response) => response.json())
         .then((data) => {
           var liste = [];
@@ -157,7 +162,7 @@ const UserPage = () => {
           friend: friendText,
         }),
       };
-      fetch("/users/removeFriend", requestOptions)
+      fetch("https://chatex2.herokuapp.com/users/removeFriend", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           getFriends();
