@@ -14,7 +14,6 @@
     "@withvoid/make-validation": "1.0.5",
     "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
-    "cassandra-store": "^5.0.0",
     "cors": "2.8.5",
     "express": "4.16.1",
     "express-session": "^1.17.1",
@@ -28,6 +27,7 @@
     "webpack-cli": "^4.5.0"
   },
   "devDependencies": {
+    "cassandra-store": "^5.0.0",
     "gh-pages": "^3.1.0",
     "nodemon": "2.0.4"
   }
