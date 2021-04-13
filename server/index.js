@@ -20,6 +20,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 app.set("port", port);
 
+app.use(cors());
 app.use(
   session({
     secret: "keyboard cat",
