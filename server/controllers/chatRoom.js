@@ -7,7 +7,7 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
 const io = require("socket.io-client");
-const socket = io("ws://chatex2.herokuapp.com/");
+const socket = io("https://chatex2.herokuapp.com/");
 
 export default {
   initiate: async (req, res) => {
@@ -32,7 +32,6 @@ export default {
         type,
         chatInitiator
       );
-      socket.connect();
       return res.status(200).json({ success: true, chatRoom });
     } catch (error) {
       return res.status(500).json({ success: false, error: error });

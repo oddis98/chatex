@@ -75,7 +75,9 @@ const MessageBoard = (props) => {
     if (props.room) {
       updateMessageBoard();
 
-      var socket = io("ws://chatex2.herokuapp.com/");
+      var socket = io.connect("https://chatex2.herokuapp.com/", {
+        reconnect: true,
+      });
 
       socket.on("message", (text) => {
         updateMessageBoard();
