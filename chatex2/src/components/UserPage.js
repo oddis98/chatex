@@ -88,7 +88,7 @@ const UserPage = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          history.push("/");
+          history.push("/chatex_client");
         }
       });
   };
@@ -99,7 +99,7 @@ const UserPage = () => {
         .then((response) => response.json())
         .then((data) => {
           if (!data.success) {
-            history.push("/");
+            history.push("/chatex_client");
           } else {
             setEmail(data.email);
             setAuth(data.auth);

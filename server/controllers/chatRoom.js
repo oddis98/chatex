@@ -32,6 +32,7 @@ export default {
         type,
         chatInitiator
       );
+      socket.connect();
       return res.status(200).json({ success: true, chatRoom });
     } catch (error) {
       return res.status(500).json({ success: false, error: error });

@@ -18,6 +18,7 @@ export default (props) => {
     fetch("/users/email/" + values.email)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         try {
           const id = data["user"]["_id"];
           const email = data["user"]["email"];
@@ -36,13 +37,13 @@ export default (props) => {
   };
 
   const redirect = (id, auth, email) => {
-    history.push("/users/" + id);
+    history.push("/chatex_client/users/" + id);
   };
 
   const history = useHistory();
   const create = () => {
     history.push({
-      pathname: "/create",
+      pathname: "/chatex_client/create",
     });
   };
 
@@ -53,7 +54,7 @@ export default (props) => {
         if (!data.success) {
           return;
         }
-        history.push("/users/" + data.id);
+        history.push("/chatex_client/users/" + data.id);
       });
     return () => {};
   });

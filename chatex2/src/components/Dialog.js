@@ -27,7 +27,7 @@ const SimpleDialogPrep = (props) => {
           friend: friend.target.value.toLowerCase(),
         }),
       };
-      fetch("/users/addFriend", requestOptions)
+      fetch("/chatex_client/users/addFriend", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (!data.success) {

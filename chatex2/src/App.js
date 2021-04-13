@@ -44,19 +44,19 @@ function App() {
       <Router>
         <Nav />
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/chatex_client">
             <Home />
           </Route>
-          <Route exact path="/home">
+          <Route exact path="/chatex_client/home">
             <LandingPage />
           </Route>
-          <Route exact path="/create">
+          <Route exact path="/chatex_client/create">
             <CreateUser />
           </Route>
-          <Route exact path="/users">
+          <Route exact path="/chatex_client/users">
             <GetAllUsers />
           </Route>
-          <Route path="/users/:id">
+          <Route path="/chatex_client/users/:id">
             <UserPage />
           </Route>
         </Switch>

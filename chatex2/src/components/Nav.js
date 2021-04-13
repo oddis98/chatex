@@ -16,10 +16,10 @@ const Nav = () => {
     <AppBar className={classes.nav}>
       <Toolbar>
         <span className="item"></span>
-        <NavLink exact to="/home" className="link">
+        <NavLink exact to="/chatex_client/home" className="link">
           <LockOpenRoundedIcon />
         </NavLink>
-        <NavLink exact to="/" className="link">
+        <NavLink exact to="/chatex_client" className="link">
           <HomeRoundedIcon />
         </NavLink>
       </Toolbar>
