@@ -14,19 +14,6 @@ import { createRequire } from "module";
 
 const require = createRequire(import.meta.url);
 var session = require("express-session");
-var CassandraStore = require("cassandra-store");
-
-const options = {
-  table: "sessions",
-  client: null,
-  clientOptions: {
-    contactPoints: ["localhost"],
-    keyspace: "tests",
-    queryOptions: {
-      prepare: true,
-    },
-  },
-};
 
 const app = express();
 
@@ -36,7 +23,6 @@ app.set("port", port);
 app.use(cors());
 app.use(
   session({
-    store: new CassandraStore(options),
     secret: "keyboard cat",
     saveUninitialized: false,
     resave: false,
