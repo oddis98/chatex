@@ -50,7 +50,7 @@ export default (props) => {
   useEffect(() => {
     const requestOptions = {
       method: "GET",
-      headers: { withCredentials: true },
+      headers: { "Content-Type": "application/json", withCredentials: true },
     };
     fetch("https://chatex2.herokuapp.com/login", requestOptions)
       .then((response) => response.json())
