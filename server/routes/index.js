@@ -49,7 +49,7 @@ router.get("/login", async (req, res) => {
       "mySessions",
       async function (err, collection) {
         console.log("here");
-        const user = await collection.findOne({ sessionID: req.sessionID });
+        const user = await collection.findOne({ _id: req.sessionID });
         if (!user) {
           return (sess = false);
         }
