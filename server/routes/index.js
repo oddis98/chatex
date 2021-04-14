@@ -33,7 +33,6 @@ router.post("/login/:userId", encode, async (req, res, next) => {
   req.session.email = emailFromForm;
   req.session.authorization = req.authToken;
   req.session.userId = existingUser._id;
-  req.session.sessionid = req.sessionID;
 
   return res.status(200).json({
     success: true,
@@ -44,8 +43,7 @@ router.post("/login/:userId", encode, async (req, res, next) => {
 
 router.get("/login", async (req, res) => {
   try {
-    const email = req.session.email;
-    const sess = await SessionModel.findSession(email);
+    const sess = await SessionModel.findSession(sessionID);
     console.log(req.session);
     if (!sess) {
       return res.status(218).json({

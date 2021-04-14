@@ -13,9 +13,9 @@ const session = new mongoose.Schema(
   }
 );
 
-session.statics.findSession = async function (email) {
+session.statics.findSession = async function (sessionID) {
   try {
-    const sess = await this.findOne({ session: { email: email } });
+    const sess = await this.findOne({ sessionID: sessionID });
     if (!sess) {
       return res.status(218).json({ success: false, msg: "No session found" });
     }
