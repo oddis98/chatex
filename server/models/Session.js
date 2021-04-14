@@ -17,8 +17,11 @@ session.statics.findSession = async function (sessionID) {
   try {
     const sess = await this.findOne({ sessionID: sessionID });
     if (!sess) {
+      console.log("did not find a session...");
       return res.status(218).json({ success: false, msg: "No session found" });
     }
+
+    console.log("found a session!");
 
     return res.status(200).json({
       success: true,
