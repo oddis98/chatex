@@ -48,7 +48,7 @@ router.get("/login", async (req, res) => {
     mongoose.connection.db.collection(
       "mySessions",
       async function (err, collection) {
-        console.log("here");
+        console.log(req.sessionID);
         const user = await collection.findOne({ _id: req.sessionID });
         if (!user) {
           return (sess = false);
