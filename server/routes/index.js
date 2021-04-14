@@ -31,10 +31,10 @@ router.post("/login/:userId", encode, async (req, res, next) => {
   if (!passwordMatch)
     return res.status(500).json({ success: false, msg: "Wrong Password" });
 
-  req.session.email = emailFromForm;
-  req.session.authorization = req.authToken;
-  req.session.userId = existingUser._id;
-  req.session.sessionid = req.sessionID;
+  req.session.cookie.email = emailFromForm;
+  req.session.cookie.authorization = req.authToken;
+  req.session.cookie.userId = existingUser._id;
+  req.session.cookie.sessionid = req.sessionID;
 
   return res.status(200).json({
     success: true,
@@ -61,7 +61,7 @@ router.get("/login", async (req, res) => {
     //   }
     // );
 
-    if (!req.session.email) {
+    if (!req.session.cookie.email) {
       return res.status(218).json({
         success: false,
         msg: "No session found",
