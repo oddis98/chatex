@@ -31,6 +31,7 @@ router.post("/login/:userId", encode, async (req, res, next) => {
   if (!passwordMatch)
     return res.status(500).json({ success: false, msg: "Wrong Password" });
 
+  req.session.create = "Created";
   req.session.cookie.email = emailFromForm;
   req.session.cookie.authorization = req.authToken;
   req.session.cookie.userId = existingUser._id;
