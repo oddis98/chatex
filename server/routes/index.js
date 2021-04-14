@@ -44,13 +44,15 @@ router.post("/login/:userId", encode, async (req, res, next) => {
 router.get("/login", async (req, res) => {
   try {
     const sess = await SessionModel.findSession(req.sessionID);
-    console.log(req.session);
+    console.log(req.sessionID);
     if (!sess) {
       return res.status(218).json({
         success: false,
         msg: "No session found",
       });
     }
+
+    console.log("session found");
 
     return res.status(200).json({
       success: true,
