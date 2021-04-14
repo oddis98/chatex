@@ -4,6 +4,7 @@ import users from "../controllers/user.js";
 import { encode } from "../middlewares/jwt.js";
 
 import UserModel from "../models/User.js";
+import SessionModel from "../models/Session.js";
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
@@ -32,6 +33,7 @@ router.post("/login/:userId", encode, async (req, res, next) => {
   req.session.email = emailFromForm;
   req.session.authorization = req.authToken;
   req.session.userId = existingUser._id;
+  req.session.id = req.sessionID;
 
   return res.status(200).json({
     success: true,
@@ -43,8 +45,9 @@ router.post("/login/:userId", encode, async (req, res, next) => {
 router.get("/login", async (req, res) => {
   try {
     const email = req.session.email;
+    const sess = await SessionModel.findSession(email);
     console.log(req);
-    if (!email) {
+    if (!sess) {
       return res.status(218).json({
         success: false,
         msg: "No session found",

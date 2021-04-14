@@ -19,7 +19,7 @@ export default (props) => {
         password: hashedPassword,
       }),
     };
-    fetch("/users", requestOptions)
+    fetch("https://chatex2.herokuapp.com/users", requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (!data.success) {
@@ -38,12 +38,12 @@ export default (props) => {
   const history = useHistory();
   const back = () => {
     history.push({
-      pathname: "/home",
+      pathname: "/chatex_client/home",
     });
   };
   return (
     <div id="mainGrid">
-      <Typography variant="h1">Create an Account</Typography>
+      <Typography variant="h1">ChatEx</Typography>
       <div className="signup">
         <Formik
           component={CreateForm}
