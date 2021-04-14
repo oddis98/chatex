@@ -14,12 +14,12 @@ import { createRequire } from "module";
 
 const require = createRequire(import.meta.url);
 var session = require("express-session");
-var MongoDBStore = require("connect-mongo")(session);
+var MongoStore = require("connect-mongo")(session);
 
-var store = new MongoDBStore({
-  uri: process.env.MONGODB,
-  collection: "mySessions",
-});
+// var store = new MongoDBStore({
+//   uri: process.env.MONGODB,
+//   collection: "mySessions",
+// });
 
 const app = express();
 
@@ -31,10 +31,9 @@ app.use(
   session({
     secret: "keyboard cat",
     cookie: {
-      maxAge: 1000 * 60 * 60 * 24 * 7,
       secure: true,
     },
-    store: store,
+    store: new MongoStore({ url: process.env.MONGODB }),
     saveUninitialized: false,
     resave: false,
   })
