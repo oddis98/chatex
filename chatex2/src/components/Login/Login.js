@@ -9,7 +9,7 @@ export default (props) => {
   const handleSubmit = (values) => {
     const requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", withCredentials: true },
       body: JSON.stringify({
         email: values.email,
         password: values.password,

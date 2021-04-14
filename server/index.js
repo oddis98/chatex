@@ -14,6 +14,7 @@ import { createRequire } from "module";
 
 const require = createRequire(import.meta.url);
 var cookieParser = require("cookie-parser");
+var bodyParser = require("body-parser");
 var session = require("express-session");
 var MongoStore = require("connect-mongo")(session);
 
@@ -58,6 +59,8 @@ app.use(function (req, res, next) {
   );
   next();
 });
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(logger("dev"));
 app.use(express.json());
