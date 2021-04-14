@@ -48,7 +48,11 @@ export default (props) => {
   };
 
   useEffect(() => {
-    fetch("https://chatex2.herokuapp.com/login")
+    const requestOptions = {
+      method: "GET",
+      headers: { withCredentials: true },
+    };
+    fetch("https://chatex2.herokuapp.com/login", requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (!data.success) {

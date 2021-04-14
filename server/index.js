@@ -13,6 +13,7 @@ import { decode } from "./middlewares/jwt.js";
 import { createRequire } from "module";
 
 const require = createRequire(import.meta.url);
+var cookieParser = require("cookie-parser");
 var session = require("express-session");
 var MongoStore = require("connect-mongo")(session);
 
@@ -26,12 +27,20 @@ const app = express();
 const port = process.env.PORT || 3000;
 app.set("port", port);
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [process.env.ORIGIN],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+app.use(cookieParser("keyboard cat"));
 app.use(
   session({
     secret: "keyboard cat",
     cookie: {
-      secure: true,
+      httpOnly: false,
+      secure: false,
     },
     store: new MongoStore({ url: process.env.MONGODB }),
     saveUninitialized: false,
