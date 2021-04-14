@@ -45,6 +45,10 @@ app.use(
     secret: "keyboard cat",
     cookie: {
       secure: true,
+      email: "",
+      aauthorization: "",
+      userId: "",
+      sessionId: "",
     },
     store: new MongoStore({ url: process.env.MONGODB }),
     saveUninitialized: false,
