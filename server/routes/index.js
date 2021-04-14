@@ -44,22 +44,23 @@ router.post("/login/:userId", encode, async (req, res, next) => {
 
 router.get("/login", async (req, res) => {
   try {
-    mongoose.connection.once("open", function () {
+    const sess = await mongoose.connection.once("open", function () {
       mongoose.connection.db.collection(
         "mySessions",
         function (err, collection) {
           collection.find({}).toArray(function (err, data) {
-            console.log(data);
+            return data;
           });
         }
       );
     });
-    // if (!sess) {
-    //   return res.status(218).json({
-    //     success: false,
-    //     msg: "No session found",
-    //   });
-    // }
+    console.log(sess);
+    if (!sess) {
+      return res.status(218).json({
+        success: false,
+        msg: "No session found",
+      });
+    }
 
     console.log("session found");
 
