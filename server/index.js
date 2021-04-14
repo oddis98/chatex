@@ -30,7 +30,7 @@ app.set("port", port);
 
 app.use(
   cors({
-    origin: [process.env.ORIGIN],
+    origin: process.env.ORIGIN,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -48,19 +48,6 @@ app.use(
     resave: false,
   })
 );
-
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-  res.header("Access-Control-Allow-Origin", process.env.ORIGIN);
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  next();
-});
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(logger("dev"));
 app.use(express.json());
