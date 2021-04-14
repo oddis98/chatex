@@ -14,7 +14,7 @@ import { createRequire } from "module";
 
 const require = createRequire(import.meta.url);
 var session = require("express-session");
-var MongoDBStore = require("connect-mongodb-session")(session);
+var MongoDBStore = require("connect-mongo")(session);
 
 var store = new MongoDBStore({
   uri: process.env.MONGODB,
