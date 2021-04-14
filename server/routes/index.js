@@ -61,7 +61,7 @@ router.get("/login", async (req, res) => {
     //   }
     // );
 
-    if (!req.session) {
+    if (!req.session.email) {
       return res.status(218).json({
         success: false,
         msg: "No session found",
