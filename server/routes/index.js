@@ -34,6 +34,7 @@ router.post("/login/:userId", encode, async (req, res, next) => {
   req.session.email = emailFromForm;
   req.session.authorization = req.authToken;
   req.session.userId = existingUser._id;
+  req.session.sessionid = req.sessionID;
 
   return res.status(200).json({
     success: true,
@@ -44,18 +45,19 @@ router.post("/login/:userId", encode, async (req, res, next) => {
 
 router.get("/login", async (req, res) => {
   try {
-    const sess = mongoose.connection.db.collection(
+    let sess;
+    mongoose.connection.db.collection(
       "mySessions",
-      function (err, collection) {
+      async function (err, collection) {
         console.log(req.sessionID);
-        const user = collection.find({}).toArray(function (err, data) {
-          return data;
+        const user = await collection.findOne({
+          session: { sessionid: req.sessionID },
         });
         console.log("user:", user);
         if (!user) {
-          return console.log("oof");
+          return (sess = false);
         }
-        return console.log(user);
+        return (sess = true);
       }
     );
     console.log(sess.s.db.s);
