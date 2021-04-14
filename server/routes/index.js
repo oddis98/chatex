@@ -36,8 +36,6 @@ router.post("/login/:userId", encode, async (req, res, next) => {
   req.session.userId = existingUser._id;
   req.session.sessionid = req.sessionID;
 
-  req.session.save();
-
   return res.status(200).json({
     success: true,
     email: req.session.email,
@@ -47,7 +45,7 @@ router.post("/login/:userId", encode, async (req, res, next) => {
 
 router.get("/login", async (req, res) => {
   try {
-    console.log(req.session.accessData);
+    console.log(req.session.session.json());
     console.log(req.session.requestData);
     const sess = req.sessionStore.collection.s;
     // mongoose.connection.db.collection(
