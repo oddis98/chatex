@@ -45,7 +45,10 @@ router.post("/login/:userId", encode, async (req, res, next) => {
 router.get("/login", async (req, res) => {
   try {
     mongoose.connection.db.collection("mySessions", function (err, collection) {
-      const user = collection.findOne({ _id: req.sessionID });
+      const user = await collection.findOne({ _id: req.sessionID });
+      if (!user) {
+        return console.log("oof");
+      }
       console.log(user);
     });
     // if (!sess) {
