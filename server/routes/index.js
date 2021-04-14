@@ -2,6 +2,7 @@
 import users from "../controllers/user.js";
 // middlewares
 import { encode } from "../middlewares/jwt.js";
+import mongoose from "mongoose";
 
 import UserModel from "../models/User.js";
 import SessionModel from "../models/Session.js";
@@ -43,7 +44,12 @@ router.post("/login/:userId", encode, async (req, res, next) => {
 
 router.get("/login", async (req, res) => {
   try {
-    const sess = await SessionModel.findSession(req.sessionID);
+    const sess = await mongoose.connection.db.collection(
+      "mySessions",
+      function (err, collection) {
+        collection.findOne({ sessionID: req.sessionID });
+      }
+    );
     console.log(req.sessionID);
     if (!sess) {
       return res.status(218).json({
