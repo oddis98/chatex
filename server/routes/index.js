@@ -44,17 +44,15 @@ router.post("/login/:userId", encode, async (req, res, next) => {
 
 router.get("/login", async (req, res) => {
   try {
-    let sess;
-    mongoose.connection.db.collection(
+    const sess = mongoose.connection.db.collection(
       "mySessions",
       async function (err, collection) {
         console.log(req.sessionID);
         const user = await collection.findOne({ _id: req.sessionID });
         if (!user) {
-          return (sess = false);
+          return console.log("oof");
         }
-        console.log(user);
-        return (sess = true);
+        return console.log(user);
       }
     );
 
