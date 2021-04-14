@@ -48,7 +48,7 @@ router.get("/login", async (req, res) => {
       "mySessions",
       function (err, collection) {
         const user = collection.findOne({ sessionID: req.sessionID });
-        return user;
+        console.log(user);
       }
     );
     console.log(sess);
