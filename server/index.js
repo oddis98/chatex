@@ -30,7 +30,7 @@ app.set("port", port);
 
 app.use(
   cors({
-    origin: process.env.ORIGIN,
+    origin: "https://thelunarproject.asuscomm.com/",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
