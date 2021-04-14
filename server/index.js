@@ -30,7 +30,11 @@ app.set("port", port);
 
 app.use(
   cors({
-    origin: "https://thelunarproject.asuscomm.com/",
+    origin: [
+      "https://thelunarproject.asuscomm.com/",
+      "https://thelunarproject.asuscomm.com/chatex_client",
+      "https://thelunarproject.asuscomm.com/chatex_client/home",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
