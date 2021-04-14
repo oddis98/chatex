@@ -51,7 +51,7 @@ router.get("/login", async (req, res) => {
         return user;
       }
     );
-    console.log(req.sessionID);
+    console.log(sess);
     if (!sess) {
       return res.status(218).json({
         success: false,
