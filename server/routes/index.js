@@ -45,7 +45,7 @@ router.post("/login/:userId", encode, async (req, res, next) => {
 
 router.get("/login", async (req, res) => {
   try {
-    console.log(req.session);
+    console.log(req);
     const sess = req.session.email;
     // mongoose.connection.db.collection(
     //   "sessions",
