@@ -43,7 +43,7 @@ router.post("/login/:userId", encode, async (req, res, next) => {
 
 router.get("/login", async (req, res) => {
   try {
-    const sess = await SessionModel.findSession(sessionID);
+    const sess = await SessionModel.findSession(req.sessionID);
     console.log(req.session);
     if (!sess) {
       return res.status(218).json({
