@@ -45,28 +45,31 @@ router.post("/login/:userId", encode, async (req, res, next) => {
 
 router.get("/login", async (req, res) => {
   try {
-    let sess;
-    mongoose.connection.db.collection(
-      "sessions",
-      async function (err, collection) {
-        console.log(req.sessionID);
-        const user = await collection.findOne({ _id: req.sessionID });
-        console.log("user:", user);
-        if (!user) {
-          return (sess = false);
-        }
-        return (sess = true);
-      }
-    );
-    console.log(sess.s.db.s);
-    if (!sess) {
-      return res.status(218).json({
-        success: false,
-        msg: "No session found",
-      });
-    }
+    const { session: sess } = req;
 
-    console.log("session found");
+    console.log(req.session.b);
+    // let sess;
+    // mongoose.connection.db.collection(
+    //   "sessions",
+    //   async function (err, collection) {
+    //     console.log(req.sessionID);
+    //     const user = await collection.findOne({ _id: req.sessionID });
+    //     console.log("user:", user);
+    //     if (!user) {
+    //       return (sess = false);
+    //     }
+    //     return (sess = true);
+    //   }
+    // );
+    // console.log(sess.s.db.s);
+    // if (!sess) {
+    //   return res.status(218).json({
+    //     success: false,
+    //     msg: "No session found",
+    //   });
+    // }
+
+    // console.log("session found");
 
     return res.status(200).json({
       success: true,

@@ -39,7 +39,7 @@ app.use(
     credentials: true,
   })
 );
-app.use(cookieParser("keyboard cat"));
+
 app.use(
   session({
     secret: "keyboard cat",
@@ -52,6 +52,7 @@ app.use(
     resave: false,
   })
 );
+app.use(cookieParser("keyboard cat"));
 
 app.use(logger("dev"));
 app.use(express.json());
