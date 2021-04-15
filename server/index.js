@@ -48,7 +48,7 @@ app.use(
     cookie: {
       secure: true,
       httpOnly: false,
-      sameSite: none,
+      sameSite: "none",
     },
     store: new MongoStore({ url: process.env.MONGODB }),
     saveUninitialized: false,
