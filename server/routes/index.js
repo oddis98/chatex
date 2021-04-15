@@ -47,7 +47,8 @@ router.get("/login", async (req, res) => {
   try {
     // console.log(req.session);
     // console.log(req.sessionID);
-    console.log(req);
+    console.log(req.cookies);
+    console.log(req.signedCookies);
 
     // let sess;
     // mongoose.connection.db.collection(
