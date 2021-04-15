@@ -54,6 +54,8 @@ app.use(
   })
 );
 
+app.use(cookieParser("keyboard cat"));
+
 app.use(
   session({
     secret: "keyboard cat",
