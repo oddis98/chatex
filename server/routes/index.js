@@ -47,7 +47,7 @@ router.post("/login/:userId", encode, async (req, res, next) => {
 
 router.get("/login", async (req, res) => {
   try {
-    console.log(req.headers);
+    console.log(req);
     console.log(req.sessionID);
 
     // let sess;
