@@ -28,20 +28,6 @@ const app = express();
 const port = process.env.PORT || 3000;
 app.set("port", port);
 
-app.use(
-  cors({
-    origin: [
-      "https://thelunarproject.asuscomm.com",
-      "https://thelunarproject.asuscomm.com/chatex_client",
-      "https://thelunarproject.asuscomm.com/chatex_client/home",
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
-
-app.use(cookieParser("keyboard cat"));
-
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Credentials", true);
   res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
@@ -55,6 +41,20 @@ app.use(function (req, res, next) {
   );
   next();
 });
+
+app.use(
+  cors({
+    origin: [
+      "https://thelunarproject.asuscomm.com",
+      "https://thelunarproject.asuscomm.com/chatex_client",
+      "https://thelunarproject.asuscomm.com/chatex_client/home",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
+app.use(cookieParser("keyboard cat"));
 
 app.use(
   session({
