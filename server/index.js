@@ -66,7 +66,7 @@ app.use(
     },
     withCredentials: true,
     store: new MongoStore({ url: process.env.MONGODB }),
-    saveUninitialized: true,
+    saveUninitialized: false,
     resave: false,
   })
 );
