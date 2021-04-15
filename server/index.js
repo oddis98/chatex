@@ -1,4 +1,4 @@
-import http from "http";
+import https from "https";
 import express from "express";
 import logger from "morgan";
 import cors from "cors";
@@ -60,7 +60,7 @@ app.use(
   session({
     secret: "keyboard cat",
     cookie: {
-      secure: false,
+      secure: true,
       httpOnly: false,
       sameSite: "none",
     },
@@ -87,7 +87,7 @@ app.use("*", (req, res) => {
   });
 });
 
-const server = http.createServer(app);
+const server = https.createServer(app);
 global.io = require("socket.io")(server, {
   cors: { origin: "*" },
 });
