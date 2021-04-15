@@ -36,14 +36,11 @@ router.post("/login/:userId", encode, async (req, res, next) => {
   req.session.userId = existingUser._id;
   req.session.sessionId = req.sessionID;
 
-  return (
-    res.status(200).json({
-      success: true,
-      email: req.session.email,
-      authorization: req.authToken,
-    }),
-    next()
-  );
+  return res.status(200).json({
+    success: true,
+    email: req.session.email,
+    authorization: req.authToken,
+  });
 });
 
 router.get("/login", async (req, res) => {
