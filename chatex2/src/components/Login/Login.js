@@ -9,7 +9,8 @@ export default (props) => {
   const handleSubmit = (values) => {
     const requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json", withCredentials: true },
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         email: values.email,
         password: values.password,
@@ -50,7 +51,8 @@ export default (props) => {
   useEffect(() => {
     const requestOptions = {
       method: "GET",
-      headers: { "Content-Type": "application/json", withCredentials: true },
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
     };
     fetch("https://chatex2.herokuapp.com/login", requestOptions)
       .then((response) => response.json())
