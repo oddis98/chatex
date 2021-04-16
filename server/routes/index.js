@@ -36,8 +36,6 @@ router.post("/login/:userId", encode, async (req, res, next) => {
   req.session.userId = existingUser._id;
   req.session.sessionId = req.sessionID;
 
-  res.cookie("email", req.session.email, { signed: true });
-
   return res.status(200).json({
     success: true,
     email: req.session.email,
