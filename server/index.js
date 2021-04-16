@@ -28,6 +28,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 app.set("port", port);
 
+app.use(cookieParser("keyboard cat"));
+
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Credentials", true);
   res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
@@ -39,6 +41,7 @@ app.use(function (req, res, next) {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
+  res.cookie("SameSite", "None");
   next();
 });
 
@@ -54,8 +57,6 @@ app.use(
   })
 );
 
-app.use(cookieParser("keyboard cat"));
-
 app.use(
   session({
     secret: "keyboard cat",
@@ -66,7 +67,7 @@ app.use(
       maxAge: 1000 * 60 * 10,
     },
     store: new MongoStore({ url: process.env.MONGODB }),
-    saveUninitialized: true,
+    saveUninitialized: false,
     resave: false,
   })
 );
