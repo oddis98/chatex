@@ -17,6 +17,7 @@ var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var session = require("express-session");
 var MongoStore = require("connect-mongo")(session);
+var livereload = require("connect-livereload");
 
 // var store = new MongoDBStore({
 //   uri: process.env.MONGODB,
@@ -70,6 +71,8 @@ app.use(
     resave: false,
   })
 );
+
+app.use(livereload());
 
 app.use(logger("dev"));
 app.use(express.json());
