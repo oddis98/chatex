@@ -14,15 +14,9 @@ import { createRequire } from "module";
 
 const require = createRequire(import.meta.url);
 var cookieParser = require("cookie-parser");
-var bodyParser = require("body-parser");
 var session = require("express-session");
 var MongoStore = require("connect-mongo")(session);
 var livereload = require("connect-livereload");
-
-// var store = new MongoDBStore({
-//   uri: process.env.MONGODB,
-//   collection: "mySessions",
-// });
 
 const app = express();
 
@@ -34,10 +28,7 @@ app.use(cookieParser("keyboard cat"));
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Credentials", true);
   res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://thelunarproject.asuscomm.com"
-  );
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
