@@ -28,6 +28,20 @@ const app = express();
 const port = process.env.PORT || 3000;
 app.set("port", port);
 
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://thelunarproject.asuscomm.com"
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  next();
+});
+
 app.use(
   cors({
     origin: [
@@ -52,25 +66,10 @@ app.use(
       maxAge: 1000 * 60 * 10,
     },
     store: new MongoStore({ url: process.env.MONGODB }),
-    saveUninitialized: false,
+    saveUninitialized: true,
     resave: false,
   })
 );
-
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-  res.setHeader("Set-Cookie", "SameSite=None");
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://thelunarproject.asuscomm.com"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  next();
-});
 
 app.use(logger("dev"));
 app.use(express.json());
