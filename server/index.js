@@ -28,7 +28,10 @@ app.use(cookieParser("keyboard cat"));
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Credentials", true);
   res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://thelunarproject.asuscomm.com"
+  );
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
@@ -52,7 +55,7 @@ app.use(
   session({
     secret: "keyboard cat",
     cookie: {
-      secure: false,
+      secure: true,
       httpOnly: false,
       sameSite: "none",
       maxAge: 1000 * 60 * 10,
