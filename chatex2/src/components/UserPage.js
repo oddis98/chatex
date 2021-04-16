@@ -99,8 +99,13 @@ const UserPage = () => {
   };
 
   useEffect(() => {
+    const requestOptions = {
+      method: "GET",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+    };
     const getSession = () => {
-      fetch("https://chatex2.herokuapp.com/login")
+      fetch("https://chatex2.herokuapp.com/login", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (!data.success) {

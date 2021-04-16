@@ -36,7 +36,7 @@ router.post("/login/:userId", encode, async (req, res, next) => {
   req.session.userId = existingUser._id;
   req.session.sessionId = req.sessionID;
 
-  req.session.save();
+  res.cookie("email", req.session.email, { signed: true });
 
   return res.status(200).json({
     success: true,
@@ -48,6 +48,7 @@ router.post("/login/:userId", encode, async (req, res, next) => {
 router.get("/login", async (req, res) => {
   try {
     console.log(req.cookies);
+    console.log(req.signedCookies);
     console.log(req.sessionID);
 
     // let sess;
