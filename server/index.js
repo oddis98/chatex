@@ -13,12 +13,11 @@ import { decode } from "./middlewares/jwt.js";
 import { createRequire } from "module";
 
 const require = createRequire(import.meta.url);
-const redis = require("redis");
+
 var cookieParser = require("cookie-parser");
 var session = require("express-session");
-// var MongoStore = require("connect-mongo")(session);
-// new MongoStore({ url: process.env.MONGODB })
-var RedisStore = require("connect-redis")(session);
+var MongoStore = require("connect-mongo")(session);
+
 var redisClient = redis.createClient();
 var livereload = require("connect-livereload");
 
@@ -66,7 +65,7 @@ app.use(
       sameSite: "none",
       maxAge: 1000 * 60 * 10,
     },
-    store: new RedisStore({ client: redisClient }),
+    store: new MongoStore({ url: process.env.MONGODB }),
     saveUninitialized: false,
     resave: false,
   })
