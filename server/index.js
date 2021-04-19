@@ -24,6 +24,8 @@ var livereload = require("connect-livereload");
 
 const app = express();
 
+app.enable("trust proxy");
+
 const port = process.env.PORT || 3000;
 app.set("port", port);
 
