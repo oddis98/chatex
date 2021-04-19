@@ -18,7 +18,6 @@ var cookieParser = require("cookie-parser");
 var session = require("express-session");
 var MongoStore = require("connect-mongo")(session);
 
-var redisClient = redis.createClient();
 var livereload = require("connect-livereload");
 
 const app = express();
