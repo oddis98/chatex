@@ -59,6 +59,7 @@ app.use(
       httpOnly: false,
       sameSite: "none",
       maxAge: 1000 * 60 * 10,
+      domain: "https://chatex2.herokuapp.com",
     },
     store: new MongoStore({ url: process.env.MONGODB }),
     saveUninitialized: false,
