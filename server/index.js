@@ -55,7 +55,7 @@ app.use(
   session({
     secret: "keyboard cat",
     cookie: {
-      secure: false,
+      secure: true,
       httpOnly: false,
       sameSite: "none",
       maxAge: 1000 * 60 * 10,
