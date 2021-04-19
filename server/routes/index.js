@@ -45,24 +45,6 @@ router.post("/login/:userId", encode, async (req, res, next) => {
 
 router.get("/login", async (req, res) => {
   try {
-    console.log(req.cookies);
-    console.log(req.signedCookies);
-    console.log(req.sessionID);
-
-    // let sess;
-    // mongoose.connection.db.collection(
-    //   "sessions",
-    //   async function (err, collection) {
-    //     console.log(req.sessionID);
-    //     const user = await collection.findOne({ _id: req.sessionID });
-    //     console.log("user:", user);
-    //     if (!user) {
-    //       return (sess = false);
-    //     }
-    //     return (sess = true);
-    //   }
-    // );
-
     if (!req.session.email) {
       return res.status(218).json({
         success: false,

@@ -89,7 +89,12 @@ const UserPage = () => {
   };
 
   const logout = () => {
-    fetch("https://chatex2.herokuapp.com/logout")
+    const requestOptions = {
+      method: "GET",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+    };
+    fetch("https://chatex2.herokuapp.com/logout", requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
@@ -135,8 +140,16 @@ const UserPage = () => {
   }, [history]);
 
   const getFriends = () => {
+    const requestOptions = {
+      method: "GET",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+    };
     try {
-      fetch("https://chatex2.herokuapp.com/users/friends/allFriends")
+      fetch(
+        "https://chatex2.herokuapp.com/users/friends/allFriends",
+        requestOptions
+      )
         .then((response) => response.json())
         .then((data) => {
           var liste = [];
@@ -160,6 +173,7 @@ const UserPage = () => {
     try {
       const requestOptions = {
         method: "POST",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },

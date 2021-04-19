@@ -9,6 +9,7 @@ import LandingPage from "./components/LandingPage.js";
 import UserPage from "./components/UserPage.js";
 import Home from "./components/Home/Home.js";
 import Nav from "./components/Nav.js";
+import { useHistory } from "react-router-dom";
 
 function App() {
   const theme = createMuiTheme({
@@ -38,6 +39,7 @@ function App() {
       ].join(","),
     },
   });
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
