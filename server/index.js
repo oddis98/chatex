@@ -62,7 +62,7 @@ app.use(
       secure: true,
       httpOnly: false,
       sameSite: "none",
-      maxAge: 14 * 24 * 60 * 60 * 60,
+      maxAge: 14 * 24 * 60 * 60 * 1000,
     },
     store: new MongoStore({ url: process.env.MONGODB }),
     saveUninitialized: false,
