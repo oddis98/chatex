@@ -56,7 +56,7 @@ app.use(
     secret: "keyboard cat",
     cookie: {
       secure: true,
-      httpOnly: false,
+      httpOnly: true,
       sameSite: "none",
       maxAge: 1000 * 60 * 10,
     },
