@@ -9,4 +9,4 @@ It uses ReactJS with create-react-app as it's frontend which can be located in [
 
 
 ### Live
-The app is currently live at [lunarcode.no](lunarcode.no), so feel free to test it.
+The app is currently live at [https://www.lunarcode.no](lunarcode.no), so feel free to test it.
