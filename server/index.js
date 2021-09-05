@@ -34,7 +34,7 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
   res.header(
     "Access-Control-Allow-Origin",
-    "https://thelunarproject.asuscomm.com"
+    "81.191.86.156"
   );
   res.header(
     "Access-Control-Allow-Headers",
@@ -46,9 +46,9 @@ app.use(function (req, res, next) {
 app.use(
   cors({
     origin: [
-      "https://thelunarproject.asuscomm.com",
-      "https://thelunarproject.asuscomm.com/chatex_client",
-      "https://thelunarproject.asuscomm.com/chatex_client/home",
+      "81.191.86.156",
+      "81.191.86.156/chatex_client",
+      "81.191.86.156/chatex_client/home",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
