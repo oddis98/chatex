@@ -34,7 +34,7 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
   res.header(
     "Access-Control-Allow-Origin",
-    "81.191.86.156"
+    "https://oddis98.github.io"
   );
   res.header(
     "Access-Control-Allow-Headers",
@@ -46,9 +46,9 @@ app.use(function (req, res, next) {
 app.use(
   cors({
     origin: [
-      "81.191.86.156",
-      "81.191.86.156/chatex_client",
-      "81.191.86.156/chatex_client/home",
+      "https://oddis98.github.io",
+      "https://oddis98.github.io/chatex_client",
+      "https://oddis98.github.io/chatex_client/home",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
